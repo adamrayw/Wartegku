@@ -8,43 +8,44 @@ import { Autoplay, Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import HomeMenu from '../components/HomeMenu';
 
 export default function Home() {
     return (
-        <section>
-            <Swiper
-                modules={[Autoplay, Pagination]}
-                loop={true}
-                slidesPerView={1}
-                pagination={{
-                    dynamicBullets: true,
-                }}
-                autoplay={{
-                    "delay": 1600,
-                    "disableOnInteraction": false
-                }}
-            >
-                <SwiperSlide>
-                    <div className='md:h-80 h-48' style={{
-                        backgroundImage: `url(${Home1})`, backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
-                    }}>
-                        hello
-                    </div>
-                </SwiperSlide>
+        <>
+            <section>
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    loop={true}
+                    slidesPerView={1}
+                    pagination={{
+                        dynamicBullets: true,
+                    }}
+                    autoplay={{
+                        "delay": 1600,
+                        "disableOnInteraction": false
+                    }}
+                >
+                    <SwiperSlide>
+                        <div className='md:h-80 h-48' style={{
+                            backgroundImage: `url(${Home1})`, backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
+                        }}>
+                            hello
+                        </div>
+                    </SwiperSlide>
 
-                <SwiperSlide>
-                    <div className='md:h-80 h-48' style={{
-                        backgroundImage: `url(${Home2})`, backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
-                    }}>
-                        hello
-                    </div>
-                </SwiperSlide>
-            </Swiper>
-
-
-
-        </section>
+                    <SwiperSlide>
+                        <div className='md:h-80 h-48' style={{
+                            backgroundImage: `url(${Home2})`, backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat'
+                        }}>
+                            hello
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </section>
+            <HomeMenu />
+        </>
     )
 }
