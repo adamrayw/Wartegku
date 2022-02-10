@@ -9,6 +9,7 @@ import { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import HomeMenu from '../components/HomeMenu';
+import Footer from '../components/Footer';
 
 export default function Home() {
     return (
@@ -46,6 +47,7 @@ export default function Home() {
                 </Swiper>
             </section>
             <HomeMenu />
+            <Footer />
         </>
     )
 }
