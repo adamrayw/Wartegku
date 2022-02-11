@@ -150,7 +150,7 @@ export default function Cart() {
                             <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
                         </div>
                     </div>
-                    <div className='flex md:flex-row flex-col-reverse justify-between items-center '>
+                    <div className='flex md:flex-row flex-col-reverse justify-between items-center pb-4'>
                         <div className='space-y-4'>
                             <p className='text-xs text-gray-400 md:text-left text-center'>Kami menerima pembayaran via :</p>
                             <div className='flex items-center space-x-2'>
@@ -173,7 +173,6 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     )
