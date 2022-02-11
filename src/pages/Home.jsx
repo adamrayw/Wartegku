@@ -26,22 +26,23 @@ export default function Home() {
                         "delay": 1600,
                         "disableOnInteraction": false
                     }}
+                    sli
                 >
                     <SwiperSlide>
-                        <div className='md:h-80 h-48' style={{
+                        <div className='md:h-80 h-48 flex items-center justify-center md:px-20 px-10' style={{
                             backgroundImage: `url(${Home1})`, backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
                         }}>
-                            hello
+                            <p className='text-white font-semibold md:text-6xl text-2xl'>Males keluar rumah? <br /> pesan di Wartegku!</p>
                         </div>
                     </SwiperSlide>
 
                     <SwiperSlide>
-                        <div className='md:h-80 h-48' style={{
+                        <div className='md:h-80 h-48 flex items-center justify-center md:px-20 px-10' style={{
                             backgroundImage: `url(${Home2})`, backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat'
+                            backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
                         }}>
-                            hello
+                            <p className='text-white font-semibold md:text-6xl text-2xl'>Beli di Wartegku selalu ada diskon!</p>
                         </div>
                     </SwiperSlide>
                 </Swiper>
