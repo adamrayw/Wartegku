@@ -24,10 +24,10 @@ export default function Navbar() {
                         <input type="text" id="email-adress-icon" className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
                     </div>
                     <div className='flex md:justify-center justify-end items-center space-x-8 md:pl-8 md:mt-0 mt-6'>
-                        <div className='relative'>
+                        <Link to="/cart" className='relative'>
                             <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-500 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>1</div>
                             <i className="fa-solid fa-cart-shopping fa-lg"></i>
-                        </div>
+                        </Link>
                         <div>
                             <i className="fa-solid fa-circle-user fa-lg"></i>
                         </div>
