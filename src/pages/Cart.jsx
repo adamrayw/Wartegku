@@ -139,24 +139,37 @@ export default function Cart() {
             <div>
                 <hr />
             </div>
-            <div className='flex items-center text-left'>
+            <div className='text-left'>
                 <div className='space-y-6'>
-                    <h1 className='text-black md:text-2xl text-xl font-bold text-left'>TOTAL :</h1>
-                    <div className='space-y-4'>
-                        <p className='text-xs text-gray-400'>Kami menerima pembayaran via :</p>
-                        <div className='flex items-center space-x-2'>
-                            <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
-                                <img src={ovo} alt="bca" width="22" />
+                    <div className='flex justify-between md:items-center items-start'>
+                        <div>
+                            <h1 className='text-black md:text-2xl text-xl font-bold text-left'>TOTAL :</h1>
+                        </div>
+                        <div className='space-y-2'>
+                            <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Rp360.000</h1>
+                            <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
+                        </div>
+                    </div>
+                    <div className='flex md:flex-row flex-col-reverse justify-between items-center '>
+                        <div className='space-y-4'>
+                            <p className='text-xs text-gray-400 md:text-left text-center'>Kami menerima pembayaran via :</p>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                                    <img src={ovo} alt="bca" width="22" />
+                                </div>
+                                <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                                    <img src={gopay} alt="bni" width="40" />
+                                </div>
+                                <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                                    <img src={dana} alt="bni" width="40" />
+                                </div>
+                                <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                                    <img src={bca} alt="bni" width="40" />
+                                </div>
                             </div>
-                            <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
-                                <img src={gopay} alt="bni" width="40" />
-                            </div>
-                            <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
-                                <img src={dana} alt="bni" width="40" />
-                            </div>
-                            <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
-                                <img src={bca} alt="bni" width="40" />
-                            </div>
+                        </div>
+                        <div>
+                            <button className='md:w-40 w-56 my-6 mb-10 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-all'>Bayar</button>
                         </div>
                     </div>
                 </div>
