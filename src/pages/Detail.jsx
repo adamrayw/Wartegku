@@ -43,15 +43,15 @@ export default function Detail() {
                 </div>
             </div>
             <div className='text-left space-y-2'>
-                <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Description</h1>
-                <p className='text-gray-500 md:text-sm text-xs tracking-wider text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed in vel vero doloribus exercitationem pariatur officiis libero quia voluptatibus reiciendis, enim fuga, delectus cupiditate assumenda maiores deleniti quod dolorem facere, dignissimos iure? Aspernatur, explicabo tempore laborum vero sed expedita dolorem.</p>
+                <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Tentang makanan ini</h1>
+                <p className='text-gray-500 md:text-sm text-xs tracking-wider text-justify'>Gado-gado adalah makanan khas Jakarta berisi sayur-sayuran yang direbus, irisan telur dan tahu, serta ditaburi bawang goreng dan kerupuk. Sayur-sayuran ditambahkan dengan bumbu kacang atau saus dari kacang tanah yang telah dihaluskan yang kemudian diaduk merata. - Wikipedia</p>
 
             </div>
             <hr className='mt-6' />
             <div>
                 <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Mungkin kamu juga suka</h1>
             </div>
-            <div className='grid md:grid-cols-4 grid-cols-1 gap-4'>
+            <div className='grid md:grid-cols-4 grid-cols-2 gap-4'>
                 <div class="text-left bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <Link to="/detail">
                         <img class="p-8 w-48 rounded-t-lg mx-auto" src={Gadogado} alt="pho" />
@@ -66,7 +66,7 @@ export default function Detail() {
                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-gray-900 dark:text-white">$599</span>
+                            <span class="md:text-xl text-lg font-bold text-gray-900 dark:text-white">$599</span>
                             <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-cart-arrow-down"></i></a>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ export default function Detail() {
                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-gray-900 dark:text-white">$599</span>
+                            <span class="md:text-xl text-lg font-bold text-gray-900 dark:text-white">$599</span>
                             <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-cart-arrow-down"></i></a>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ export default function Detail() {
                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-gray-900 dark:text-white">$599</span>
+                            <span class="md:text-xl text-lg font-bold text-gray-900 dark:text-white">$599</span>
                             <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-cart-arrow-down"></i></a>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default function Detail() {
                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-gray-900 dark:text-white">$599</span>
+                            <span class="md:text-xl text-lg font-bold text-gray-900 dark:text-white">$599</span>
                             <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-cart-arrow-down"></i></a>
                         </div>
                     </div>
