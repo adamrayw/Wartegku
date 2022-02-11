@@ -47,6 +47,9 @@ export default function Detail() {
 
             </div>
             <hr className='mt-6' />
+            <div>
+                <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Mungkin kamu juga suka</h1>
+            </div>
         </section>
     )
 }
