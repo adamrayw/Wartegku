@@ -130,10 +130,10 @@ export default function Cart() {
             </div>
             <div className='text-left'>
                 <div>
-                    <label htmlFor="Catatan" className='text-sm text-black font-semibold'>Catatan (Optional)</label>
+                    <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
                 </div>
                 <div>
-                    <textarea name="catatan" className='md:w-auto w-full rounded-lg text-sm border border-gray-400 text-gray-600' id="" cols="40" rows="2"></textarea>
+                    <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-400 text-gray-600' id="" cols="40" rows="2"></textarea>
                 </div>
             </div>
             <div>
@@ -143,10 +143,10 @@ export default function Cart() {
                 <div className='space-y-6'>
                     <div className='flex justify-between md:items-center items-start'>
                         <div>
-                            <h1 className='text-black md:text-2xl text-xl font-bold text-left'>TOTAL :</h1>
+                            <h1 className='text-black md:text-2xl text-lg font-bold text-left'>TOTAL :</h1>
                         </div>
                         <div className='space-y-2'>
-                            <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Rp360.000</h1>
+                            <h1 className='text-black md:text-2xl text-lg font-bold text-left'>Rp360.000</h1>
                             <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
                         </div>
                     </div>
