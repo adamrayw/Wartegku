@@ -3,14 +3,13 @@ import gopay from '../assets/payments/gopay.png';
 import ovo from '../assets/payments/ovo.png';
 import dana from '../assets/payments/dana.png';
 import bca from '../assets/payments/bca.png';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, addAmount, decreaseAmount } from '../redux/features/amountCart/cart';
 
 export default function Cart() {
-    const [count, setCount] = React.useState(0);
 
     const value = useSelector((state) => state.cart.value)
-    console.log(value);
-
+    const dispatch = useDispatch();
 
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
@@ -37,6 +36,9 @@ export default function Cart() {
                                         <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
                                             TOTAL
                                         </th>
+                                        <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
+
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,18 +54,22 @@ export default function Cart() {
                                                 <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     <div className='flex items-center space-x-2'>
                                                         <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                            setCount(count - 1)
+                                                            dispatch(decreaseAmount(item))
                                                         }}>-</button>
                                                         <p className='text-sm text-gray-500 '>{item.qty}</p>
                                                         <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                            setCount(count + 1)
+                                                            dispatch(addAmount(item))
                                                         }}>+</button>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                                    {item.harga}
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">Rp
+                                                    {new Intl.NumberFormat(['ban', 'id']).format(item.harga * item.qty)}
                                                 </td>
-
+                                                <td className='text-red-500'>
+                                                    <button onClick={() => dispatch(removeFromCart(item))}>
+                                                        <i className="fa-solid fa-xmark "></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         )
                                     })}
@@ -76,16 +82,16 @@ export default function Cart() {
             </div>
 
             <div className='text-left'>
-            {(value.length > 0 && (
-                <>
-                <div>
-                    <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
-                </div>
-                <div>
-                    <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-200 text-gray-600' id="" cols="40" rows="2"></textarea>
-                </div>
-                </>
-            ))}
+                {(value.length > 0 && (
+                    <>
+                        <div>
+                            <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
+                        </div>
+                        <div>
+                            <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-200 text-gray-600' id="" cols="40" rows="2"></textarea>
+                        </div>
+                    </>
+                ))}
             </div>
             <div>
                 <hr />
