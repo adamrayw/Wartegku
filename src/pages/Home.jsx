@@ -26,7 +26,6 @@ export default function Home() {
                         "delay": 1600,
                         "disableOnInteraction": false
                     }}
-                    sli
                 >
                     <SwiperSlide>
                         <div className='md:h-80 h-48 flex items-center justify-center md:px-20 px-10' style={{
