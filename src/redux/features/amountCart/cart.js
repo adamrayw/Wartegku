@@ -43,7 +43,11 @@ export const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
-        state.value[itemIndex].qty -= 1;
+        if (state.value[itemIndex].qty === 1) {
+          state.value[itemIndex].qty = 1;
+        } else {
+          state.value[itemIndex].qty -= 1;
+        }
       }
     },
   },
