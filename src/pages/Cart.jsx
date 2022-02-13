@@ -1,12 +1,17 @@
 import React from 'react'
-import gadogado from '../assets/menu/gadogado.png';
 import gopay from '../assets/payments/gopay.png';
 import ovo from '../assets/payments/ovo.png';
 import dana from '../assets/payments/dana.png';
 import bca from '../assets/payments/bca.png';
+import { useSelector } from 'react-redux';
 
 export default function Cart() {
     const [count, setCount] = React.useState(0);
+
+    const value = useSelector((state) => state.cart.value)
+    console.log(value);
+
+
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
             <div>
@@ -18,6 +23,7 @@ export default function Cart() {
                         <div className="overflow-hidden sm:rounded-lg">
                             <table className="min-w-full">
                                 <thead className="bg-blue-500">
+
                                     <tr>
                                         <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
                                             ITEM
@@ -34,94 +40,34 @@ export default function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-left">
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img src={gadogado} alt="item" width="60" />
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Gado -gado
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            <div className='flex items-center space-x-2'>
-                                                <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count - 1)
-                                                }}>-</button>
-                                                <p className='text-sm text-gray-500 '>{count}</p>
-                                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count + 1)
-                                                }}>+</button>
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Rp60.000
-                                        </td>
-                                    </tr>
-                                    <tr className="text-left">
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img src={gadogado} alt="item" width="60" />
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Gado -gado
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            <div className='flex items-center space-x-2'>
-                                                <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count - 1)
-                                                }}>-</button>
-                                                <p className='text-sm text-gray-500 '>{count}</p>
-                                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count + 1)
-                                                }}>+</button>
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Rp60.000
-                                        </td>
-                                    </tr>
-                                    <tr className="text-left">
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img src={gadogado} alt="item" width="60" />
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Gado -gado
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            <div className='flex items-center space-x-2'>
-                                                <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count - 1)
-                                                }}>-</button>
-                                                <p className='text-sm text-gray-500 '>{count}</p>
-                                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count + 1)
-                                                }}>+</button>
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Rp60.000
-                                        </td>
-                                    </tr>
-                                    <tr className="text-left">
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img src={gadogado} alt="item" width="60" />
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Gado -gado
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            <div className='flex items-center space-x-2'>
-                                                <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count - 1)
-                                                }}>-</button>
-                                                <p className='text-sm text-gray-500 '>{count}</p>
-                                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
-                                                    setCount(count + 1)
-                                                }}>+</button>
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Rp60.000
-                                        </td>
-                                    </tr>
+                                    {value.map((item, index) => {
+                                        return (
+                                            <tr className="text-left" key={index}>
+                                                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <img src={item.img} alt="item" width="60" />
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    {item.nama}
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    <div className='flex items-center space-x-2'>
+                                                        <button className='border rounded-full text-sm px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
+                                                            setCount(count - 1)
+                                                        }}>-</button>
+                                                        <p className='text-sm text-gray-500 '>{item.qty}</p>
+                                                        <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
+                                                            setCount(count + 1)
+                                                        }}>+</button>
+                                                    </div>
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    {item.harga}
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -133,7 +79,7 @@ export default function Cart() {
                     <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
                 </div>
                 <div>
-                    <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-400 text-gray-600' id="" cols="40" rows="2"></textarea>
+                    <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-200 text-gray-600' id="" cols="40" rows="2"></textarea>
                 </div>
             </div>
             <div>
