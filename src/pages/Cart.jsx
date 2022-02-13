@@ -63,24 +63,29 @@ export default function Cart() {
                                                 <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
                                                     {item.harga}
                                                 </td>
+
                                             </tr>
                                         )
                                     })}
-
-
                                 </tbody>
                             </table>
+                            {(value.length === 0 && (<p className='my-4 text-gray-400'>Anda belum pesan apapun</p>))}
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className='text-left'>
+            {(value.length > 0 && (
+                <>
                 <div>
                     <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
                 </div>
                 <div>
                     <textarea name="catatan" className='md:w-auto w-full rounded-lg md:text-sm text-xs border border-gray-200 text-gray-600' id="" cols="40" rows="2"></textarea>
                 </div>
+                </>
+            ))}
             </div>
             <div>
                 <hr />
@@ -91,10 +96,14 @@ export default function Cart() {
                         <div>
                             <h1 className='text-black md:text-2xl text-lg font-bold text-left'>TOTAL :</h1>
                         </div>
-                        <div className='space-y-2'>
-                            <h1 className='text-black md:text-2xl text-lg font-bold text-left'>Rp360.000</h1>
-                            <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
-                        </div>
+                        {(value.length > 0 && (
+                            <>
+                                <div className='space-y-2'>
+                                    <h1 className='text-black md:text-2xl text-lg font-bold text-left'>Rp360.000</h1>
+                                    <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
+                                </div>
+                            </>
+                        ))}
                     </div>
                     <div className='flex md:flex-row flex-col-reverse justify-between items-center pb-4'>
                         <div className='space-y-4'>
@@ -115,7 +124,11 @@ export default function Cart() {
                             </div>
                         </div>
                         <div>
-                            <button className='md:w-40 w-56 my-6 mb-10 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-all'>Bayar</button>
+                            {(value.length > 0 && (
+                                <>
+                                    <button className='md:w-40 w-56 my-6 mb-10 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-all'>Bayar</button>
+                                </>
+                            ))}
                         </div>
                     </div>
                 </div>
