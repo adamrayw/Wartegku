@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import gopay from '../assets/payments/gopay.png';
 import ovo from '../assets/payments/ovo.png';
 import dana from '../assets/payments/dana.png';
 import bca from '../assets/payments/bca.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, addAmount, decreaseAmount } from '../redux/features/amountCart/cart';
+import { removeFromCart, addAmount, decreaseAmount, getTotal } from '../redux/features/amountCart/cart';
 
 export default function Cart() {
-
-    const value = useSelector((state) => state.cart.value)
+    const value = useSelector((state) => state.cart)
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getTotal());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value]);
 
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
@@ -42,7 +45,7 @@ export default function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {value.map((item, index) => {
+                                    {value.value.map((item, index) => {
                                         return (
                                             <tr className="text-left" key={index}>
                                                 <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -102,10 +105,10 @@ export default function Cart() {
                         <div>
                             <h1 className='text-black md:text-2xl text-lg font-bold text-left'>TOTAL :</h1>
                         </div>
-                        {(value.length > 0 && (
+                        {(value.value.length > 0 && (
                             <>
                                 <div className='space-y-2'>
-                                    <h1 className='text-black md:text-2xl text-lg font-bold text-left'>Rp360.000</h1>
+                                    <h1 className='text-black md:text-2xl text-lg font-bold text-left'>Rp{new Intl.NumberFormat(['ban', 'id']).format(value.cartTotalPrice)}</h1>
                                     <p className='text-xs text-gray-400'>* Belum termasuk ongkir</p>
                                 </div>
                             </>
