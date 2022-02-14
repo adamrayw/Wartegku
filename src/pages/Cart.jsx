@@ -11,13 +11,13 @@ export default function Cart() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getTotal());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value]);
+    }, [value, dispatch]);
+
 
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
             <div>
-                <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Pesanan Saya</h1>
+                <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Keranjang Saya</h1>
             </div>
             <div className="flex flex-col">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -78,7 +78,7 @@ export default function Cart() {
                                     })}
                                 </tbody>
                             </table>
-                            {(value.length === 0 && (<p className='my-4 text-gray-400'>Anda belum pesan apapun</p>))}
+                            {(value.value.length === 0 && (<p className='my-4 text-gray-400'>Anda belum pesan apapun</p>))}
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ export default function Cart() {
                             </div>
                         </div>
                         <div>
-                            {(value.length > 0 && (
+                            {(value.value.length > 0 && (
                                 <>
                                     <button className='md:w-40 w-56 my-6 mb-10 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-all'>Bayar</button>
                                 </>
