@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { add, remove } from '../redux/features/amountitem/amountItem';
 import { addToCart } from '../redux/features/amountCart/cart';
 import { getTotal } from '../redux/features/amountCart/cart';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Detail2() {
@@ -56,17 +56,17 @@ export default function Detail2() {
                             </div>
                         </div>
 
+                        <ToastContainer />
                         <button className="md:w-40 w-full inline-block text-white bg-blue-700 hover:bg-blue-800 active:bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             onClick={() => {
                                 dispatch(addToCart(data2))
                                 toast.success('Added to cart!', {
-                                    position: "top-right",
-                                    autoClose: 5000,
-                                    hideProgressBar: false,
+                                    position: "bottom-right",
+                                    autoClose: 1800,
+                                    hideProgressBar: true,
                                     closeOnClick: true,
                                     pauseOnHover: false,
                                     draggable: false,
-                                    progress: 0,
                                 });
                             }}>Add to Cart</button>
                     </div>
