@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Kentanggoreng from '../assets/menu/kentanggoreng.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { add, remove } from '../redux/features/amountitem/amountItem';
 import { addToCart } from '../redux/features/amountCart/cart';
+import { getTotal } from '../redux/features/amountCart/cart';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Detail2() {
 
-    // const value = useSelector((state) => state.amountitem.value)
+    const value = useSelector((state) => state.cart)
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getTotal());
+    }, [value, dispatch]);
 
     // console.log(value);
 
@@ -49,10 +55,20 @@ export default function Detail2() {
                                 {/* <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(add())}>+</button> */}
                             </div>
                         </div>
+
                         <button className="md:w-40 w-full inline-block text-white bg-blue-700 hover:bg-blue-800 active:bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             onClick={() => {
                                 dispatch(addToCart(data2))
-                            }}><i className="fa-solid fa-cart-arrow-down"></i></button>
+                                toast.success('Added to cart!', {
+                                    position: "top-right",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: false,
+                                    draggable: false,
+                                    progress: 0,
+                                });
+                            }}>Add to Cart</button>
                     </div>
                 </div>
             </div>
