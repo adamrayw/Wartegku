@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
 
-    const value = useSelector((state) => state.cart.value)
+    const { cartTotalQuantity } = useSelector((state) => state.cart)
 
     return (
         <nav className="bg-white shadow-sm border-gray-200 md:px-6 px-4 py-4 rounded dark:bg-gray-800">
@@ -29,7 +29,7 @@ export default function Navbar() {
                     </div>
                     <div className='flex md:justify-center justify-end items-center space-x-8 md:pl-8 md:mt-0 mt-6'>
                         <Link to="/cart" className='relative'>
-                            <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-500 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{value.length}</div>
+                            <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-500 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
                             <i className="fa-solid fa-cart-shopping fa-lg"></i>
                         </Link>
                         <div>
