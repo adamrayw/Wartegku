@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import gadogado from '../assets/menu/gadogado.png';
 import kentanggoreng from '../assets/menu/kentanggoreng.png';
+import Greeting from './Greeting';
 
 export default function HomeMenu() {
     return (
         <section className='my-4 md:px-0 px-4'>
             <div>
-                <h2 className='text-black font-bold md:text-2xl text-xl md:text-left text-center mb-4'>Mau makan apa?</h2>
+                <Greeting />
             </div>
             <div className='grid md:grid-cols-4 grid-cols-2 gap-4'>
                 <div className="text-left bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
