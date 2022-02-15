@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Kentanggoreng from '../assets/menu/kentanggoreng.png';
 import { useDispatch, useSelector } from 'react-redux';
 // import { add, remove } from '../redux/features/amountitem/amountItem';
-import { addToCart } from '../redux/features/amountCart/cart';
-import { getTotal } from '../redux/features/amountCart/cart';
+import { addToCart, getTotal } from '../redux/features/amountCart/cart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Detail2() {
+    const [itemAmount, setItemAmount] = useState(1)
+
 
     const value = useSelector((state) => state.cart)
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ export default function Detail2() {
         nama: 'Kentang Goreng',
         harga: 20000,
         rating: 5,
-        qty: 1,
+        qty: itemAmount ?? 1,
     }
 
     return (
@@ -50,17 +51,26 @@ export default function Detail2() {
                         <div>
                             <p className='mb-2 text-sm font-medium'>Jumlah</p>
                             <div className='flex items-center justify-between mb-4'>
-                                {/* <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(remove())}>-</button> */}
-                                <p className='text-sm text-gray-500 '>{0}</p>
-                                {/* <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(add())}>+</button> */}
+                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
+
+                                    if (itemAmount === 1) {
+                                        setItemAmount(1)
+                                    } else {
+                                        setItemAmount(itemAmount - 1)
+                                    }
+
+                                }}>-</button>
+                                <p className='text-sm text-gray-500 '>{itemAmount}</p>
+                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(setItemAmount(itemAmount + 1))}>+</button>
                             </div>
                         </div>
 
-                        <ToastContainer />
+                        <ToastContainer className="text-left " />
                         <button className="md:w-40 w-full inline-block text-white bg-blue-700 hover:bg-blue-800 active:bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             onClick={() => {
                                 dispatch(addToCart(data2))
-                                toast.success('Added to cart!', {
+                                setItemAmount(1)
+                                toast.success('Anda menambahkan ' + itemAmount + ' ' + data2.nama + ' ke keranjang!', {
                                     position: "bottom-right",
                                     autoClose: 1800,
                                     hideProgressBar: true,
