@@ -8,7 +8,7 @@ export default function Navbar() {
     const { cartTotalQuantity } = useSelector((state) => state.cart)
 
     return (
-        <nav className="bg-white shadow-sm border-gray-200 md:px-6 px-4 py-4 rounded dark:bg-gray-800">
+        <nav className="bg-white border-gray-200 md:px-0 px-4 py-4 rounded dark:bg-gray-800">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link to="/" className="flex ">
                     <span className="self-center md:text-2xl text-xl font-bold whitespace-nowrap text-blue-500">Wartegku</span>
@@ -33,11 +33,13 @@ export default function Navbar() {
                     </div>
                     <div className='flex md:justify-center justify-end items-center space-x-8 md:pl-8 md:mt-0 mt-6'>
                         <Link to="/cart" className='relative'>
-                            <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-500 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
-                            <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                            <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-700 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
+                            <div className='text-blue-500'>
+                                <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                            </div>
                         </Link>
                         <div>
-                            <button id="dropdownButton" data-dropdown-toggle="dropdown" className=" inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"> <i className="fa-solid fa-circle-user fa-lg"></i><svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                            <button id="dropdownButton" data-dropdown-toggle="dropdown" className=" inline-flex items-center text-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"> <i className="fa-solid fa-circle-user fa-lg"></i><svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
                             <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                                 <ul className="py-1 text-left" aria-labelledby="dropdownButton">
