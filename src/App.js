@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
 import Detail2 from "./pages/Detail2";
 import Home from "./pages/Home";
@@ -16,6 +17,7 @@ function App() {
         <Route path="detail2" element={<Detail2 />} />
         <Route path="cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
