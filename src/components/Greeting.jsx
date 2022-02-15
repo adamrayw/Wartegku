@@ -5,7 +5,7 @@ export default function Greeting() {
 
     useEffect(() => {
         const time = new Date().toLocaleTimeString(['ban', 'id']);
-        if (time < '12:00:00') {
+        if (time < '11:00:00') {
             setWaktu('Selamat Pagi');
         } else if (time < '18:00:00') {
             setWaktu('Selamat Siang');
