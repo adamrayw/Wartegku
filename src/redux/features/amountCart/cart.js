@@ -15,9 +15,9 @@ export const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
-        state.value[itemIndex].qty += 1;
+        state.value[itemIndex].qty += action.payload.qty;
       } else {
-        const tempitem = { ...action.payload, qty: 1 };
+        const tempitem = { ...action.payload, qty: action.payload.qty };
         state.value.push(tempitem);
       }
     },
