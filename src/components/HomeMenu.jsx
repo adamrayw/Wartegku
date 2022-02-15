@@ -12,7 +12,7 @@ export default function HomeMenu() {
             </div>
             <div className='grid md:grid-cols-4 grid-cols-2 gap-4'>
                 <Link to="/detail">
-                    <div className="text-left bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div className="text-left bg-white rounded-lg shadow hover:bg-gray-100 transition-all dark:bg-gray-800 dark:border-gray-700">
                         <div className='h-40'>
                             <img className="p-8 w-40 rounded-t-lg mx-auto" src={gadogado} alt="pho" />
                         </div>
@@ -23,15 +23,15 @@ export default function HomeMenu() {
 
                                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-1">5.0</span>
                             </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-xl font-bold text-gray-900 dark:text-white">$599</span>
-
+                            <div className="flex md:flex-row flex-col md:space-x-2 md:items-center items-start">
+                                <span className="text-lg font-bold text-gray-900 dark:text-white">Rp30.000</span>
+                                <span className="text-sm font-bold text-gray-400 dark:text-white line-through">Rp48.000</span>
                             </div>
                         </div>
                     </div>
                 </Link>
                 <Link to="/detail2">
-                    <div className="text-left bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div className="text-left bg-white rounded-lg shadow hover:bg-gray-100 transition-all dark:bg-gray-800 dark:border-gray-700">
                         <div className='h-40'>
                             <img className="p-8 w-40 rounded-t-lg mx-auto" src={kentanggoreng} alt="pho" />
                         </div>
@@ -42,9 +42,9 @@ export default function HomeMenu() {
 
                                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-1">5.0</span>
                             </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-xl font-bold text-gray-900 dark:text-white">$599</span>
-
+                            <div className="flex md:flex-row flex-col md:space-x-2 md:items-center items-start">
+                                <span className="text-lg font-bold text-gray-900 dark:text-white">Rp20.000</span>
+                                <span className="text-sm font-bold text-gray-400 dark:text-white line-through">Rp34.000</span>
                             </div>
                         </div>
                     </div>
