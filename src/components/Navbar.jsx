@@ -40,6 +40,11 @@ export default function Navbar() {
                                 <i className="fa-solid fa-cart-shopping fa-lg"></i>
                             </div>
                         </Link>
+                        {/* IF NOT LOGGED IN */}
+                        <div>
+                            <Link to="/login">Login</Link>
+                        </div>
+                        {/* IF LOGGED IN 
                         <div>
                             <button id="dropdownButton" data-dropdown-toggle="dropdown" className=" inline-flex items-center text-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"> <i className="fa-solid fa-circle-user fa-lg"></i><svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
@@ -61,6 +66,7 @@ export default function Navbar() {
                             </div>
 
                         </div>
+                        */}
                     </div>
                 </div>
             </div>
