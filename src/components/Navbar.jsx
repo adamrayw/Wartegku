@@ -35,7 +35,7 @@ export default function Navbar() {
                     </div>
                     <div className='flex md:justify-center justify-end items-center space-x-8 md:pl-8 md:mt-0 mt-6'>
                         <Link to="/cart" className='relative md:block hidden'>
-                            <div className='absolute z-10 h-4 w-4 rounded-full bg-blue-700 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
+                            <div className='absolute z-10 h-5 w-5 flex justify-center items-center rounded-full border bg-blue-700 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
                             <div className='text-blue-500'>
                                 <i className="fa-solid fa-cart-shopping fa-lg"></i>
                             </div>
