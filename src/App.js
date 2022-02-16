@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
 import Detail2 from "./pages/Detail2";
 import Home from "./pages/Home";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="detail" element={<Detail />} />
         <Route path="detail2" element={<Detail2 />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
       <Footer />
     </div>
