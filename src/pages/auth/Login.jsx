@@ -22,37 +22,6 @@ export default function Login() {
         }
         setLoading(true)
 
-        console.log(loginInput);
-        // axios.get('/sanctum/csrf-cookie').then((response) => {
-        //     axios.post('/api/login', data).then((res) => {
-        //         if (res.data.status === 200) {
-        //             console.log(res.data.message);
-        //             console.log(res);
-        //             toast.success('Login berhasil!', {
-        //                 position: "top-right",
-        //                 autoClose: 1800,
-        //                 hideProgressBar: true,
-        //                 closeOnClick: true,
-        //                 pauseOnHover: false,
-        //                 draggable: false,
-        //             });
-        //         } else if (res.data.status === 401) {
-        //             setError(res.data.message)
-        //             toast.error('Login gagal!', {
-        //                 position: "top-right",
-        //                 autoClose: 1800,
-        //                 hideProgressBar: true,
-        //                 closeOnClick: true,
-        //                 pauseOnHover: false,
-        //                 draggable: false,
-        //             });
-        //         }
-
-        //         // localStorage.setItem('token', res.data.token);
-        //         console.log(res);
-        //     })
-        // });
-
         try {
             axios.get('/sanctum/csrf-cookie')
             const response = await axios.post('/api/login', data);
