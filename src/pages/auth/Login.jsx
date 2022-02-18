@@ -11,8 +11,8 @@ export default function Login() {
                 <div className="self-center w-full mt-6">
                     <div className="bg-white border rounded-lg shadow-xl">
                         <form className="py-3 px-6">
-                            <input type="email" id="email" className="block w-full h-12 mt-2 text-sm border border-gray-200 rounded-md ring-gray-300 ring-opacity-50 focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Email or phone number" />
-                            <input type="password" id="password-1" className="block w-full h-12 mt-3 text-sm border border-gray-200 rounded-md ring-gray-300 ring-opacity-50 focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Password" autoComplete="current-password" />
+                            <input type="email" name='email' className="block w-full h-12 mt-2 text-sm border border-gray-200 rounded-md ring-gray-300 ring-opacity-50 focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Email or phone number" />
+                            <input type="password" name='password' className="block w-full h-12 mt-3 text-sm border border-gray-200 rounded-md ring-gray-300 ring-opacity-50 focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Password" autoComplete="current-password" />
                             <button className="w-full h-12 px-20 py-2 mt-3 text-base font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600">Log In</button>
 
                             <div className="mt-5"><hr /></div>
