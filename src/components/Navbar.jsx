@@ -1,11 +1,30 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
 
+    const history = useNavigate();
+
+    const user_name = localStorage.getItem('auth_name');
+
+    const token = localStorage.getItem('auth_token')
+
     const { cartTotalQuantity } = useSelector((state) => state.cart)
+
+    const handleLogOut = (e) => {
+        e.preventDefault();
+
+        try {
+            localStorage.removeItem('auth_token')
+            localStorage.removeItem('auth_name')
+            history('/');
+
+        } catch (error) {
+            console.log(error.response);
+        }
+    }
 
     return (
         <nav className="bg-white border-gray-200 md:shadow-transparent shadow-sm md:border-b md:px-0 px-4 py-4 rounded dark:bg-gray-800">
@@ -37,13 +56,45 @@ export default function Navbar() {
                         <Link to="/cart" className='relative md:block hidden'>
                             <div className='absolute z-10 h-5 w-5 flex justify-center items-center rounded-full border bg-blue-700 text-white text-xs right-0 top-0 translate-x-2/4 -translate-y-1/2 mb-10'>{cartTotalQuantity}</div>
                             <div className='text-blue-500'>
-                                <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                                <i className="fa-solid fa-cart-shopping fa-xl"></i>
                             </div>
                         </Link>
                         {/* IF NOT LOGGED IN */}
-                        <div>
-                            <Link to="/login">Login</Link>
-                        </div>
+
+                        {token ? (
+                            <>
+                                <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-blue-500 inline-flex items-center" type="button"> <i className="fa-solid fa-circle-user fa-xl"></i>
+                                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+
+                                <div id="dropdownInformation" className="hidden text-left z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <div className="py-3 px-4 text-gray-900 dark:text-white">
+                                        <span className="block text-sm">Hi, {user_name}</span>
+
+                                    </div>
+                                    <ul className="py-1" aria-labelledby="dropdownInformationButton">
+                                        <li>
+                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                                        </li>
+                                    </ul>
+                                    <div className="py-1">
+                                        <button onClick={handleLogOut} className="block w-full text-left py-2 px-4 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div>
+                                <Link to="/login">Login</Link>
+                            </div>
+
+                        )}
                         {/* IF LOGGED IN 
                         <div>
                             <button id="dropdownButton" data-dropdown-toggle="dropdown" className=" inline-flex items-center text-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"> <i className="fa-solid fa-circle-user fa-lg"></i><svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
