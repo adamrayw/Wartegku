@@ -7,9 +7,9 @@ export default function Navbar() {
 
     const history = useNavigate();
 
-    const user_name = localStorage.getItem('auth_name');
+    const user_name = localStorage.getItem('user_name');
 
-    const token = localStorage.getItem('auth_token')
+    const token = localStorage.getItem('token')
 
     const { cartTotalQuantity } = useSelector((state) => state.cart)
 
@@ -17,8 +17,8 @@ export default function Navbar() {
         e.preventDefault();
 
         try {
-            localStorage.removeItem('auth_token')
-            localStorage.removeItem('auth_name')
+            localStorage.removeItem('token')
+            localStorage.removeItem('user_name')
             history('/');
 
         } catch (error) {
@@ -63,12 +63,13 @@ export default function Navbar() {
 
                         {token ? (
                             <>
-                                <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-blue-500 inline-flex items-center" type="button"> <i className="fa-solid fa-circle-user fa-xl"></i>
-                                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" className="text-blue-500 inline-flex items-center" type="button">
+                                    <i className="fa-solid fa-circle-user fa-xl"></i>
+                                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </button>
 
-                                <div id="dropdownInformation" className="hidden text-left z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                                <div id="dropdownDivider" className='hidden text-left z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'>
                                     <div className="py-3 px-4 text-gray-900 dark:text-white">
                                         <span className="block text-sm">Hi, {user_name}</span>
 
@@ -88,6 +89,8 @@ export default function Navbar() {
                                         <button onClick={handleLogOut} className="block w-full text-left py-2 px-4 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
                                     </div>
                                 </div>
+
+
                             </>
                         ) : (
                             <div>
@@ -121,7 +124,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
 
     )
 }
