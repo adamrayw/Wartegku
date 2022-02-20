@@ -1,11 +1,10 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
 
-    const history = useNavigate();
 
     const user_name = localStorage.getItem('user_name');
 
@@ -19,7 +18,7 @@ export default function Navbar() {
         try {
             localStorage.removeItem('token')
             localStorage.removeItem('user_name')
-            history('/');
+            window.location.href = '/'
 
         } catch (error) {
             console.log(error.response);
