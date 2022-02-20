@@ -25,17 +25,20 @@ export default function Login() {
         try {
             axios.get('/sanctum/csrf-cookie')
             const response = await axios.post('/api/login', data);
-            localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user_name', response.data.username);
-            toast.success('Login berhasil!', {
-                position: "top-right",
-                autoClose: 1800,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-            });
-            window.location.href = '/';
+            if (response.data.status === 200) {
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user_name', response.data.username);
+                toast.success('Login berhasil!', {
+                    position: "top-right",
+                    autoClose: 1800,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                });
+                window.location.href = '/';
+            }
+
             if (response.data.status === 401) {
                 toast.error('Pastikan email dan password sudah benar!', {
                     position: "top-right",
