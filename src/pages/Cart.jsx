@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addAmount, decreaseAmount, getTotal } from '../redux/features/amountCart/cart';
 import successTick from '../assets/success.svg';
 import notLogin from '../assets/notlogin.png';
+import { Link } from 'react-router-dom';
 
 
 export default function Cart() {
@@ -176,13 +177,13 @@ export default function Cart() {
                                                                 </div>
                                                                 {/*footer*/}
                                                                 <div className="flex items-center justify-center py-6">
-                                                                    <button
+                                                                    <Link
+                                                                        to='/my-order'
                                                                         className="text-white rounded bg-blue-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                                         type="button"
-                                                                        onClick={() => setShowModal(false)}
                                                                     >
                                                                         Pesanan Saya
-                                                                    </button>
+                                                                    </Link>
 
                                                                 </div>
                                                             </div>
@@ -215,13 +216,13 @@ export default function Cart() {
                                                                 </div>
                                                                 {/*footer*/}
                                                                 <div className="flex items-center justify-center py-6">
-                                                                    <button
+                                                                    <Link
+                                                                        to='/login'
                                                                         className="text-white rounded bg-blue-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                                         type="button"
-                                                                        onClick={() => setShowModal(false)}
                                                                     >
                                                                         Login
-                                                                    </button>
+                                                                    </Link>
 
                                                                 </div>
                                                             </div>
