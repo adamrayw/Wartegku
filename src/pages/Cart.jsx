@@ -1,21 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import gopay from '../assets/payments/gopay.png';
 import ovo from '../assets/payments/ovo.png';
 import dana from '../assets/payments/dana.png';
 import bca from '../assets/payments/bca.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addAmount, decreaseAmount, getTotal } from '../redux/features/amountCart/cart';
+import successTick from '../assets/success.svg';
+import notLogin from '../assets/notlogin.png';
+
 
 export default function Cart() {
+    const [showModal, setShowModal] = useState(false);
     const value = useSelector((state) => state.cart)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getTotal());
     }, [value, dispatch]);
 
+    const isAuth = localStorage.getItem('isAuth')
 
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
+
+
             <div>
                 <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Keranjang Saya</h1>
             </div>
@@ -85,7 +92,7 @@ export default function Cart() {
             </div>
 
             <div className='text-left'>
-                {(value.length > 0 && (
+                {(value.value.length > 0 && (
                     <>
                         <div>
                             <label htmlFor="Catatan" className='md:text-sm text-xs text-black font-semibold'>Catatan (Optional)</label>
@@ -135,7 +142,97 @@ export default function Cart() {
                         <div>
                             {(value.value.length > 0 && (
                                 <>
-                                    <button className='md:w-40 w-56 my-6 mb-10 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-all'>Bayar</button>
+
+                                    <button className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="default-modal" onClick={(() => {
+                                        setShowModal(true)
+                                    })}>
+                                        Pesan Sekarang
+                                    </button>
+
+                                    {showModal ? (
+                                        <>
+                                            {isAuth ? (
+                                                <>
+                                                    <div
+                                                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                                                        onClick={(() => {
+                                                            setShowModal(false)
+                                                        })}
+                                                    >
+                                                        <div className="relative my-6 mx-auto w-80">
+                                                            {/*content*/}
+                                                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                                                {/*header*/}
+                                                                <div className="flex flex-col items-center justify-center px-5 pt-8 space-y-4">
+                                                                    <img className='w-24' src={successTick} alt="success" />
+                                                                    <h2 className='font-semibold text-lg '>Pesanan Diproses</h2>
+                                                                </div>
+                                                                {/*body*/}
+                                                                <div className="relative px-6 flex-auto">
+                                                                    <p className="my-4 text-sm text-gray-600 text-justify leading-relaxed">
+                                                                        Terima kasih telah memesan di <span className='font-bold'>Wartegku</span>,
+                                                                        Silahkan lakukan pembayaran di menu <span className='font-bold'>Pesanan Saya.</span>
+                                                                    </p>
+                                                                </div>
+                                                                {/*footer*/}
+                                                                <div className="flex items-center justify-center py-6">
+                                                                    <button
+                                                                        className="text-white rounded bg-blue-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                                        type="button"
+                                                                        onClick={() => setShowModal(false)}
+                                                                    >
+                                                                        Pesanan Saya
+                                                                    </button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                                                </>
+
+                                            ) : (
+                                                <>
+                                                    <div
+                                                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                                                        onClick={(() => {
+                                                            setShowModal(false)
+                                                        })}
+                                                    >
+                                                        <div className="relative my-6 mx-auto w-80">
+                                                            {/*content*/}
+                                                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                                                {/*header*/}
+                                                                <div className="flex flex-col items-center justify-center px-5 pt-8 space-y-4">
+                                                                    <img className='w-24' src={notLogin} alt="success" />
+                                                                    <h2 className='font-semibold text-lg '>Ooppss!</h2>
+                                                                </div>
+                                                                {/*body*/}
+                                                                <div className="relative px-6 flex-auto">
+                                                                    <p className="my-4 text-sm text-gray-600 text-center leading-relaxed">
+                                                                        UIntuk melakukan pemesanan, Anda harus login/register terlebih dahulu.
+                                                                    </p>
+                                                                </div>
+                                                                {/*footer*/}
+                                                                <div className="flex items-center justify-center py-6">
+                                                                    <button
+                                                                        className="text-white rounded bg-blue-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                                        type="button"
+                                                                        onClick={() => setShowModal(false)}
+                                                                    >
+                                                                        Login
+                                                                    </button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                                                </>
+                                            )}
+
+                                        </>
+                                    ) : null}
                                 </>
                             ))}
                         </div>
