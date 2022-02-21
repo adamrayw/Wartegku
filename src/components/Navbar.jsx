@@ -18,6 +18,7 @@ export default function Navbar() {
         try {
             localStorage.removeItem('token')
             localStorage.removeItem('user_name')
+            localStorage.removeItem('isAuth')
             window.location.href = '/'
 
         } catch (error) {
