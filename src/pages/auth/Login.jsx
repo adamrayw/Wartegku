@@ -28,6 +28,7 @@ export default function Login() {
             if (response.data.status === 200) {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user_name', response.data.username);
+                localStorage.setItem('isAuth', true);
                 toast.success('Login berhasil!', {
                     position: "top-right",
                     autoClose: 1800,
