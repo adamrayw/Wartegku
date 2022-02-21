@@ -75,7 +75,7 @@ export default function Navbar() {
                                     </div>
                                     <ul className="py-1" aria-labelledby="dropdownInformationButton">
                                         <li>
-                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                                            <Link to='/my-order' href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pesanan Saya</Link>
                                         </li>
                                         <li>
                                             <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
@@ -85,7 +85,7 @@ export default function Navbar() {
                                         </li>
                                     </ul>
                                     <div className="py-1">
-                                        <button onClick={handleLogOut} className="block w-full text-left py-2 px-4 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+                                        <button onClick={handleLogOut} className="block w-full text-left py-2 px-4 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</button>
                                     </div>
                                 </div>
 
