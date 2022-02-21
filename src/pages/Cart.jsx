@@ -210,7 +210,7 @@ export default function Cart() {
                                                                 {/*body*/}
                                                                 <div className="relative px-6 flex-auto">
                                                                     <p className="my-4 text-sm text-gray-600 text-center leading-relaxed">
-                                                                        UIntuk melakukan pemesanan, Anda harus login/register terlebih dahulu.
+                                                                        Untuk melakukan pemesanan, Anda harus login/register terlebih dahulu.
                                                                     </p>
                                                                 </div>
                                                                 {/*footer*/}
