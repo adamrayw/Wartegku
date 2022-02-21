@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import axios from "axios";
+import MyOrder from "./pages/MyOrder";
 
 axios.defaults.baseURL = "https://warteg.herokuapp.com/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -26,6 +27,7 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="my-order" element={<MyOrder />} />
       </Routes>
       <Footer />
     </div>
