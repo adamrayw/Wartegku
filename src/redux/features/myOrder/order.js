@@ -7,5 +7,13 @@ const initialState = {
 export const orderSlice = createSlice({
   name: "order",
   initialState,
-  reducers: {},
+  reducers: {
+    addToOrder: (state, action) => {
+      state.value.push(action.payload);
+    },
+  },
 });
+
+export const { addToOrder } = orderSlice.actions;
+
+export default orderSlice.reducer;
