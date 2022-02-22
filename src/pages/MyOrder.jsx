@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+// import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { getTotal } from '../redux/features/amountCart/cart';
+
 
 export default function MyOrder() {
+    const value = useSelector((state) => state.order)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getTotal());
+    }, [value, dispatch]);
+    console.log(value);
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
             <div>
@@ -36,29 +45,38 @@ export default function MyOrder() {
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr className="text-left">
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            24443
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                            <Link to='/product/1' className="text-blue-500 hover:text-blue-700">Lihat Pesanan</Link>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            <p className='text-sm text-gray-500 '>10</p>
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">Rp
-                                            200.000
-                                        </td>
-                                        <td className="py-4 px-6 text-sm text-yellow-300 font-semibold whitespace-nowrap dark:text-gray-400">
-                                            Belum Bayar
-                                        </td>
-                                        {/* <td className='text-red-500'>
+                                    {value.value.map((item, index) => {
+                                        console.log(item);
+                                        return (
+                                            <tr className="text-left" key={index}>
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    123123
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    {item.value.map((data, index) => {
+                                                        return (
+                                                            <p key={index}>{data.qty}x{data.nama} </p>
+                                                        )
+                                                    })}
+                                                    {/* <Link to='/product/1' className="text-blue-500 hover:text-blue-700">Lihat Pesanan</Link> */}
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    <p className='text-sm text-gray-500 '>{item.cartTotalQuantity}</p>
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    Rp{item.cartTotalPrice}
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-yellow-300 font-semibold whitespace-nowrap dark:text-gray-400">
+                                                    Belum Bayar
+                                                </td>
+                                                {/* <td className='text-red-500'>
                                             <button onClick={() => dispatch(removeFromCart(item))}>
                                                 <i className="fa-solid fa-xmark "></i>
                                             </button>
                                         </td> */}
-                                    </tr>
+                                            </tr>
+                                        )
+                                    })}
 
                                 </tbody>
                             </table>
