@@ -1,38 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Gadogado from '../assets/menu/gadogado.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, remove } from '../redux/features/amountitem/amountItem';
-import { addToCart } from '../redux/features/amountCart/cart';
+// import { add, remove } from '../redux/features/amountitem/amountItem';
+import { addToCart, getTotal } from '../redux/features/amountCart/cart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function Detail() {
+export default function Detail2() {
+    const [itemAmount, setItemAmount] = useState(1)
 
-    const value = useSelector((state) => state.amountitem.value)
-    const dispatch = useDispatch()
-    const data = {
+
+    const value = useSelector((state) => state.cart)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getTotal());
+    }, [value, dispatch]);
+
+    // console.log(value);
+
+    const data2 = {
         id: 1,
         img: Gadogado,
-        nama: 'Gado - gado',
+        nama: 'Gado - Gado',
         harga: 30000,
-        rating: 5
+        rating: 5,
+        qty: itemAmount ?? 1,
     }
-
 
     return (
         <section className='mt-8 space-y-8 md:px-0 px-4'>
             <div className='flex md:flex-row flex-col md:justify-between md:items-center items-start md:space-x-0 space-y-6'>
                 <div className='flex md:flex-row flex-col md:items-center md:space-x-4 md:space-y-0 space-y-4'>
                     <div className='md:w-auto md:mx-0'>
-                        <img src={data.img} className="md:w-64 w-40" alt="makanan" />
+                        <img src={data2.img} className="md:w-64 w-40" alt="makanan" />
                     </div>
                     <div className='text-left md:space-y-4 space-y-2'>
-                        <h1 className='text-black md:text-3xl text-xl font-bold'>{data.nama}</h1>
-                        <p className='text-gray-500 md:text-base text-sm font-semibold'>Rp{data.harga}</p>
+                        <h1 className='text-black md:text-3xl text-xl font-bold'>{data2.nama}</h1>
+                        <p className='text-gray-500 md:text-base text-sm font-semibold'>Rp{data2.harga}</p>
                         <div className='flex items-center space-x-2'>
                             <div className='text-yellow-300'>
                                 <i className=" fa-solid fa-star" ></i>
                             </div>
-                            <p className='font-medium md:text-base text-sm text-gray-500 '>{data.rating}</p>
+                            <p className='font-medium md:text-base text-sm text-gray-500 '>{data2.rating}</p>
                         </div>
                     </div>
                 </div>
@@ -41,15 +51,34 @@ export default function Detail() {
                         <div>
                             <p className='mb-2 text-sm font-medium'>Jumlah</p>
                             <div className='flex items-center justify-between mb-4'>
-                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(remove())}>-</button>
-                                <p className='text-sm text-gray-500 '>{value}</p>
-                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(add())}>+</button>
+                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => {
+
+                                    if (itemAmount === 1) {
+                                        setItemAmount(1)
+                                    } else {
+                                        setItemAmount(itemAmount - 1)
+                                    }
+
+                                }}>-</button>
+                                <p className='text-sm text-gray-500 '>{itemAmount}</p>
+                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(setItemAmount(itemAmount + 1))}>+</button>
                             </div>
                         </div>
+
+                        <ToastContainer className="text-left " />
                         <button className="md:w-40 w-full inline-block text-white bg-blue-700 hover:bg-blue-800 active:bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             onClick={() => {
-                                dispatch(addToCart(data))
-                            }}><i className="fa-solid fa-cart-arrow-down"></i></button>
+                                dispatch(addToCart(data2))
+                                setItemAmount(1)
+                                toast.success('Anda menambahkan ' + itemAmount + ' ' + data2.nama + ' ke keranjang!', {
+                                    position: "bottom-right",
+                                    autoClose: 1800,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: false,
+                                    draggable: false,
+                                });
+                            }}>Add to Cart</button>
                     </div>
                 </div>
             </div>
