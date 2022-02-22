@@ -4,10 +4,11 @@ import ovo from '../assets/payments/ovo.png';
 import dana from '../assets/payments/dana.png';
 import bca from '../assets/payments/bca.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, addAmount, decreaseAmount, getTotal } from '../redux/features/amountCart/cart';
+import { removeFromCart, addAmount, decreaseAmount, getTotal, emptyCart } from '../redux/features/amountCart/cart';
 import successTick from '../assets/success.svg';
 import notLogin from '../assets/notlogin.png';
 import { Link } from 'react-router-dom';
+import { addToOrder } from '../redux/features/myOrder/order';
 
 
 export default function Cart() {
@@ -146,6 +147,7 @@ export default function Cart() {
 
                                     <button className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="default-modal" onClick={(() => {
                                         setShowModal(true)
+                                        dispatch(addToOrder(value))
                                     })}>
                                         Pesan Sekarang
                                     </button>
@@ -158,6 +160,7 @@ export default function Cart() {
                                                         className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                                                         onClick={(() => {
                                                             setShowModal(false)
+                                                            dispatch(emptyCart());
                                                         })}
                                                     >
                                                         <div className="relative my-6 mx-auto w-80">
@@ -180,7 +183,9 @@ export default function Cart() {
                                                                     <Link
                                                                         to='/my-order'
                                                                         className="text-white rounded bg-blue-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                                                        type="button"
+                                                                        onClick={(() => {
+                                                                            dispatch(emptyCart());
+                                                                        })}
                                                                     >
                                                                         Pesanan Saya
                                                                     </Link>
