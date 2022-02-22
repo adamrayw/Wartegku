@@ -61,7 +61,9 @@ export default function Detail2() {
 
                                 }}>-</button>
                                 <p className='text-sm text-gray-500 '>{itemAmount}</p>
-                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={() => dispatch(setItemAmount(itemAmount + 1))}>+</button>
+                                <button className='border rounded-full px-4 py-0 active:bg-gray-100 transition-all' onClick={(() => {
+                                    setItemAmount(itemAmount + 1)
+                                })}>+</button>
                             </div>
                         </div>
 
