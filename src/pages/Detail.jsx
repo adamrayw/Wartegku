@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Gadogado from '../assets/menu/gadogado.png';
 import { useDispatch, useSelector } from 'react-redux';
-// import { add, remove } from '../redux/features/amountitem/amountItem';
 import { addToCart, getTotal } from '../redux/features/amountCart/cart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
