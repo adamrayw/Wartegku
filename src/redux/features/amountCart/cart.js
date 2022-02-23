@@ -54,8 +54,8 @@ export const cartSlice = createSlice({
     getTotal: (state, action) => {
       let { total, quantity } = state.value.reduce(
         (cartTotal, cartItem) => {
-          const { harga, qty } = cartItem;
-          const itemTotal = harga * qty;
+          const { price, qty } = cartItem;
+          const itemTotal = price * qty;
 
           cartTotal.total += itemTotal;
           cartTotal.quantity += qty;

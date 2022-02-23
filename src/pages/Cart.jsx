@@ -23,8 +23,6 @@ export default function Cart() {
 
     return (
         <section className='mt-8 space-y-4 md:px-0 px-4'>
-
-
             <div>
                 <h1 className='text-black md:text-2xl text-xl font-bold text-left'>Keranjang Saya</h1>
             </div>
@@ -58,10 +56,10 @@ export default function Cart() {
                                         return (
                                             <tr className="text-left" key={index}>
                                                 <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    <img src={item.img} alt="item" width="60" />
+                                                    <img src={item.image} alt="item" width="60" />
                                                 </td>
                                                 <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">
-                                                    {item.nama}
+                                                    {item.name}
                                                 </td>
                                                 <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     <div className='flex items-center space-x-2'>
@@ -75,7 +73,7 @@ export default function Cart() {
                                                     </div>
                                                 </td>
                                                 <td className="py-4 px-6 text-sm text-black font-semibold whitespace-nowrap dark:text-gray-400">Rp
-                                                    {new Intl.NumberFormat(['ban', 'id']).format(item.harga * item.qty)}
+                                                    {new Intl.NumberFormat(['ban', 'id']).format(item.price * item.qty)}
                                                 </td>
                                                 <td className='text-red-500'>
                                                     <button onClick={() => dispatch(removeFromCart(item))}>
