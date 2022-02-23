@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value: [],
-};
+const initialState = [];
 
 export const orderSlice = createSlice({
   name: "order",
   initialState,
   reducers: {
     addToOrder: (state, action) => {
-      state.value.push(action.payload);
+      state.push({
+        orderId: Math.floor(1000 + Math.random() * 1000),
+        value: action.payload,
+      });
     },
   },
 });
