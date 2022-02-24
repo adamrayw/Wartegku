@@ -65,21 +65,21 @@ export default function Navbar() {
                                     </svg>
                                 </button>
 
-                                <div id="dropdownDivider" className='hidden text-left z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'>
-                                    <div className="py-3 px-4 text-gray-900 dark:text-white">
+                                <div id="dropdownDivider" className='hidden text-left z-10 w-44 text-base list-none bg-white rounded divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'>
+                                    <div className="py-3 px-4 text-gray-900 dark:text-white border-b">
                                         <span className="block text-sm">Hi, {user_name}</span>
-
                                     </div>
                                     <ul className="py-1" aria-labelledby="dropdownInformationButton">
                                         <li>
-                                            <Link to='/my-order' href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pesanan Saya</Link>
+
+                                            <Link to='/my-order' href="/" className="flex items-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" data-collapse-toggle="mobile-menu-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                                </svg>
+                                                Pesanan Saya
+                                            </Link>
                                         </li>
-                                        <li>
-                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                                        </li>
-                                        <li>
-                                            <a href="/" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                                        </li>
+
                                     </ul>
                                     <div className="py-1">
                                         <button onClick={handleLogOut} className="block w-full text-left py-2 px-4 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</button>
@@ -90,7 +90,7 @@ export default function Navbar() {
                             </>
                         ) : (
                             <div>
-                                <Link to="/login">Login</Link>
+                                <Link to="/login" data-collapse-toggle="mobile-menu-3">Login</Link>
                             </div>
 
                         )}
