@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTotal } from '../redux/features/amountCart/cart';
+import { deleteOrder } from '../redux/features/myOrder/order';
 
 
 export default function MyOrder() {
@@ -69,18 +70,20 @@ export default function MyOrder() {
                                                 <td className="py-4 px-6 text-sm text-yellow-300 font-semibold whitespace-nowrap dark:text-gray-400">
                                                     Belum Bayar
                                                 </td>
-                                                {/* <td className='text-red-500'>
-                                            <button onClick={() => dispatch(removeFromCart(item))}>
-                                                <i className="fa-solid fa-xmark "></i>
-                                            </button>
-                                        </td> */}
+                                                <td className='text-red-500'>
+                                                    <button onClick={(() => {
+                                                        dispatch(deleteOrder(value[index].orderId))
+                                                    })}>
+                                                        <i className="fa-solid fa-xmark "></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         )
                                     })}
 
                                 </tbody>
                             </table>
-                            {/* {(value.value.length === 0 && (<p className='my-4 text-gray-400'>Anda belum pesan apapun</p>))} */}
+                            {(value.length === 0 && (<p className='my-4 text-gray-400'>Anda belum pesan apapun</p>))}
                         </div>
                     </div>
                 </div>
