@@ -30,6 +30,7 @@ export default function Register() {
             const response = await axios.post('/api/register', data)
             localStorage.setItem('token', response.data.token)
             localStorage.setItem('user_name', response.data.username)
+            localStorage.setItem('isAuth', true);
             toast.success('Register berhasil!', {
                 position: "top-right",
                 autoClose: 1800,
