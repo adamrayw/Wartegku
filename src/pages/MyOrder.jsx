@@ -3,6 +3,10 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTotal } from '../redux/features/amountCart/cart';
 import { deleteOrder } from '../redux/features/myOrder/order';
+import gopay from '../assets/payments/gopay.png';
+import ovo from '../assets/payments/ovo.png';
+import dana from '../assets/payments/dana.png';
+import bca from '../assets/payments/bca.png';
 
 
 export default function MyOrder() {
@@ -87,6 +91,46 @@ export default function MyOrder() {
             </div>
             <div>
                 <hr />
+            </div>
+            <div className='text-left'>
+                <div className='mb-4 space-y-1'>
+                    <h1 className='text-xl font-medium'>Pembayaran</h1>
+                    {/* <hr className='w-36' /> */}
+                </div>
+                <div className='space-y-4'>
+                    <div className='leading-relaxed'>
+                        <h2 className='font-medium'>Virtual Account</h2>
+                        <p className='text-gray-600 text-sm'>
+                            01928401284 a/n <b>PT. Warteg Mantap Jaya</b>, dengan cantumkan ORDER-ID.
+                        </p>
+                    </div>
+                    <div className='leading-relaxed'>
+                        <h2 className='font-medium'>E - Wallet</h2>
+                        <p className='text-gray-600 text-sm'>
+                            089124124124, dengan cantumkan ORDER-ID.
+                        </p>
+                    </div>
+                    <div>
+                        <p className='text-green-400 text-sm'>* status akan otomatis berubah jika pembayaran sudah dikonfirmasi.</p>
+                    </div>
+                </div>
+                <div className='mt-6'>
+                    {/* <p className='text-xs text-gray-400 md:text-left text-center'>Kami menerima pembayaran via :</p> */}
+                    <div className='flex items-center md:justify-start justify-center space-x-2'>
+                        <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                            <img src={ovo} alt="bca" width="22" />
+                        </div>
+                        <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                            <img src={gopay} alt="bni" width="40" />
+                        </div>
+                        <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                            <img src={dana} alt="bni" width="40" />
+                        </div>
+                        <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
+                            <img src={bca} alt="bni" width="40" />
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
