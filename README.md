@@ -8,6 +8,7 @@ Beli makanan warteg tanpa keluar rumah
 - Pilih jumlah makanan
 - Keranjang Saya (My Cart)
 - Pesanan Saya (My Order)
+- Riwayat Pesanan (Order History) *soon
 
 ## Prototype
 
