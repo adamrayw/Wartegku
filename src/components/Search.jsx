@@ -9,12 +9,12 @@ export default function Search() {
 
     function handleIsOpen(e) {
         setKeyword(e.target.value);
-        if (keyword.length > 0) {
+        if (e.target.value.length > 0) {
             setIsOpen(true);
-        } else {
+        } else if (e.target.value.length < 2) {
             setIsOpen(false);
+            setSearch([]);
         }
-
         setSearch(menu.filter(menu => menu.name.toLowerCase().includes(e.target.value)));
     }
 
