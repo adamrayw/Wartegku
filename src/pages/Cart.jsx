@@ -122,7 +122,7 @@ export default function Cart() {
                         ))}
                     </div>
                     <div className='flex md:flex-row flex-col-reverse justify-between items-center pb-4'>
-                        <div className='space-y-4'>
+                        <div className='space-y-4 md:mt-0 mt-6'>
                             <p className='text-xs text-gray-400 md:text-left text-center'>Kami menerima pembayaran via :</p>
                             <div className='flex items-center space-x-2'>
                                 <div className='w-16 h-14 border rounded-xl flex justify-center items-center'>
